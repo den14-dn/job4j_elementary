@@ -4,10 +4,9 @@ public class JavaNameValidator {
     public static boolean isNameValid(String name) {
         boolean valid = !name.isEmpty()
                 && Character.isLowerCase(name.codePointAt(0));
-        for (int i = 0; i < name.length(); i++) {
+        for (int i = 1; valid && i < name.length(); i++) {
             int code = name.codePointAt(i);
-            if (valid
-                    && !isSpecialSymbol(code)
+            if (!isSpecialSymbol(code)
                     && !isUpperLatinLetter(code)
                     && !isLowerLatinLetter(code)
                     && !Character.isDigit(code)) {
